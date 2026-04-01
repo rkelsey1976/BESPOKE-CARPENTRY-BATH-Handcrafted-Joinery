@@ -165,7 +165,7 @@ export default function Home() {
       <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden text-[#F7F8F5]">
         <Image
           src="/hero-carpenter.webp"
-          alt=""
+          alt="Bespoke carpentry craftsman working on sash window repair in Bath Somerset"
           fill
           priority
           fetchPriority="high"
@@ -188,7 +188,7 @@ export default function Home() {
               Carpenter Bath | Joiner Bath
             </p>
             <h1 className="hero-title max-w-2xl">
-              Bespoke carpentry for Bath homes, designed and built to fit perfectly.
+              Carpenter Bath | Bespoke Carpentry and Joinery in Bath, Somerset
             </h1>
             <p className="hero-copy max-w-xl text-base md:text-lg">
               Handmade joinery, fitted furniture, and sash window work across Bath, Bradford-on-Avon,
@@ -469,7 +469,7 @@ export default function Home() {
       <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen py-14">
         <Image
           src="/wood-grain-hero.webp"
-          alt=""
+          alt="Wood grain background texture for bespoke carpentry section"
           fill
           sizes="100vw"
           quality={68}

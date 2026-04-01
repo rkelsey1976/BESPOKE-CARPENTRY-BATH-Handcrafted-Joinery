@@ -27,6 +27,8 @@ export function PageHero({
   actions = [],
 }: PageHeroProps) {
   const backgroundImage = imageSrc ?? "/hero-carpenter.webp";
+  const computedHeroAlt =
+    imageAlt ?? `${title} - bespoke carpentry and joinery service in Bath Somerset`;
   const overlayByVariant =
     variant === "minimal"
       ? "linear-gradient(120deg, rgba(36, 50, 61, 0.62) 0%, rgba(58, 74, 87, 0.5) 35%, rgba(200, 107, 90, 0.26) 70%, rgba(169, 83, 69, 0.36) 100%)"
@@ -38,7 +40,7 @@ export function PageHero({
     <header className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden py-10 text-[#F7F8F5] md:py-14">
       <Image
         src={backgroundImage}
-        alt={imageAlt ?? ""}
+        alt={computedHeroAlt}
         fill
         priority
         fetchPriority="high"

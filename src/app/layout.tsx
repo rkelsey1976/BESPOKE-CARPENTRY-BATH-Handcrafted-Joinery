@@ -33,7 +33,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en-GB" className="h-full antialiased">
       <head>
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
@@ -76,10 +76,10 @@ export default function RootLayout({
             </nav>
             <div className="hidden items-center gap-2 md:flex">
               <a
-                href="tel:+441225123456"
+                href="tel:+441225000000"
                 className="inline-flex min-h-11 items-center rounded-md border border-[#E8E5E0] px-3 py-2 text-xs font-semibold text-[#24323D] hover:bg-[#F7F8F5] sm:text-sm"
               >
-                01225 123456
+                01225 000000
               </a>
               <Link
                 href="/contact"

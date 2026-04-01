@@ -36,18 +36,24 @@ export function ServicesCarousel({ services, intervalMs = 5000 }: ServicesCarous
 
   return (
     <div
-      className="rounded-2xl border border-[#E8E5E0] bg-white p-5 shadow-sm md:p-6"
+      className="rounded-2xl border border-[#E8E5E0] bg-gradient-to-b from-white to-[#FCFAF8] p-5 shadow-sm md:p-6"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <div className="grid gap-6 md:grid-cols-2 md:items-center">
-        <Image
-          src={active.image}
-          alt={active.title}
-          width={1100}
-          height={700}
-          className="h-64 w-full rounded-xl object-cover"
-        />
+        <div className="relative overflow-hidden rounded-xl ring-1 ring-[#E8E5E0]">
+          <Image
+            src={active.image}
+            alt={`${active.title} carpentry and joinery service in Bath Somerset`}
+            width={1100}
+            height={700}
+            className="h-64 w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#24323D]/45 via-transparent to-transparent" />
+          <p className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#8C4337]">
+            Featured service
+          </p>
+        </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#A95345]">
             Service {activeIndex + 1} / {services.length}
@@ -57,13 +63,13 @@ export function ServicesCarousel({ services, intervalMs = 5000 }: ServicesCarous
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href={active.href}
-              className="inline-flex min-h-11 items-center rounded-md bg-[#8C4337] px-4 py-2 text-sm font-semibold text-[#F7F8F5] transition hover:bg-[#73362D]"
+              className="cta-pop inline-flex min-h-11 items-center rounded-md bg-[#8C4337] px-4 py-2 text-sm font-semibold text-[#F7F8F5] transition hover:bg-[#73362D]"
             >
               View service
             </Link>
             <Link
               href="/contact"
-              className="rounded-md border border-[#E8E5E0] px-4 py-2 text-sm font-semibold text-[#24323D] transition hover:bg-[#F7F8F5]"
+              className="cta-pop rounded-md border border-[#E8E5E0] px-4 py-2 text-sm font-semibold text-[#24323D] transition hover:bg-[#F7F8F5]"
             >
               Get a quote
             </Link>

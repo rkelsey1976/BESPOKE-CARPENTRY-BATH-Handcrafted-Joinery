@@ -106,10 +106,10 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
 
             <div className="mt-auto space-y-3 pt-6">
               <a
-                href="tel:+441225123456"
+                href="tel:+441225000000"
                 className="block rounded-md border border-[#E8E5E0] px-4 py-3 text-center text-sm font-semibold text-[#24323D] hover:bg-[#F7F8F5]"
               >
-                Call 01225 123456
+                Call 01225 000000
               </a>
               <Link
                 href="/contact"
