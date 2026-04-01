@@ -20,7 +20,7 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 [&>nav[aria-label='Breadcrumb']+*]:mt-2">
       <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Breadcrumbs items={breadcrumbItems} />
       <PageHero

@@ -59,8 +59,8 @@ export default function RootLayout({
                 priority
               />
               <span className="leading-tight">
-                <span className="block text-sm font-bold tracking-wide sm:text-xl">BESPOKE CARPENTRY BATH</span>
-                <span className="block text-xs font-medium text-[#5F7382] sm:text-base">Handcrafted Joinery</span>
+                <span className="block text-sm font-bold tracking-wide sm:text-lg">BESPOKE CARPENTRY BATH</span>
+                <span className="block text-xs font-medium text-[#5F7382] sm:text-sm">Handcrafted Joinery</span>
               </span>
             </Link>
             <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
@@ -77,15 +77,21 @@ export default function RootLayout({
             <div className="hidden items-center gap-2 md:flex">
               <a
                 href="tel:+441225000000"
-                className="inline-flex min-h-11 items-center rounded-md border border-[#E8E5E0] px-3 py-2 text-xs font-semibold text-[#24323D] hover:bg-[#F7F8F5] sm:text-sm"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#E8E5E0] px-3 py-2 text-xs font-semibold text-[#24323D] hover:bg-[#F7F8F5] sm:text-sm"
               >
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 3.2 2 2 0 0 1 4.11 1h2a2 2 0 0 1 2 1.72c.12.89.33 1.76.62 2.6a2 2 0 0 1-.45 2.11L7.2 8.6a16 16 0 0 0 6.2 6.2l1.17-1.08a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.6.62A2 2 0 0 1 22 16.92z" />
+                </svg>
                 01225 000000
               </a>
               <Link
                 href="/contact"
-                className="inline-flex min-h-11 items-center rounded-md bg-[#8C4337] px-3 py-2 text-xs font-semibold text-[#F7F8F5] hover:bg-[#73362D] sm:text-sm"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-[#8C4337] px-3 py-2 text-xs font-semibold text-[#F7F8F5] hover:bg-[#73362D] sm:text-sm"
               >
                 Get a quote
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
             <MobileMenu navLinks={navLinks} />

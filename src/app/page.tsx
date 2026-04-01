@@ -172,13 +172,13 @@ export default function Home() {
           loading="eager"
           sizes="100vw"
           quality={72}
-          className="object-cover"
+          className="object-cover grayscale"
         />
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(120deg, rgba(36, 50, 61, 0.68) 0%, rgba(58, 74, 87, 0.56) 35%, rgba(200, 107, 90, 0.34) 70%, rgba(169, 83, 69, 0.44) 100%)",
+              "linear-gradient(120deg, rgba(36, 50, 61, 0.82) 0%, rgba(58, 74, 87, 0.72) 35%, rgba(200, 107, 90, 0.52) 70%, rgba(169, 83, 69, 0.62) 100%)",
           }}
           aria-hidden
         />
@@ -200,15 +200,21 @@ export default function Home() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="hero-btn-primary"
+                className="hero-btn-primary inline-flex items-center gap-2"
               >
                 Get a quote
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
               </Link>
               <Link
                 href="/services"
-                className="hero-btn-secondary"
+                className="hero-btn-secondary inline-flex items-center gap-2"
               >
                 View carpentry services
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" />
+                </svg>
               </Link>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">

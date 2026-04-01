@@ -30,11 +30,7 @@ export function PageHero({
   const computedHeroAlt =
     imageAlt ?? `${title} - bespoke carpentry and joinery service in Bath Somerset`;
   const overlayByVariant =
-    variant === "minimal"
-      ? "linear-gradient(120deg, rgba(36, 50, 61, 0.62) 0%, rgba(58, 74, 87, 0.5) 35%, rgba(200, 107, 90, 0.26) 70%, rgba(169, 83, 69, 0.36) 100%)"
-      : variant === "tinted"
-        ? "linear-gradient(120deg, rgba(36, 50, 61, 0.66) 0%, rgba(58, 74, 87, 0.54) 35%, rgba(200, 107, 90, 0.3) 70%, rgba(169, 83, 69, 0.4) 100%)"
-        : "linear-gradient(120deg, rgba(36, 50, 61, 0.68) 0%, rgba(58, 74, 87, 0.56) 35%, rgba(200, 107, 90, 0.34) 70%, rgba(169, 83, 69, 0.44) 100%)";
+    "linear-gradient(120deg, rgba(36, 50, 61, 0.82) 0%, rgba(58, 74, 87, 0.72) 35%, rgba(200, 107, 90, 0.52) 70%, rgba(169, 83, 69, 0.62) 100%)";
 
   return (
     <header className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden py-10 text-[#F7F8F5] md:py-14">
@@ -47,7 +43,7 @@ export function PageHero({
         loading="eager"
         sizes="100vw"
         quality={72}
-        className="object-cover"
+        className="object-cover grayscale"
       />
       <div
         className="absolute inset-0"
@@ -74,13 +70,23 @@ export function PageHero({
                 <Link
                   key={action.href + action.label}
                   href={action.href}
+                  aria-label={action.label}
                   className={
                     action.variant === "secondary"
-                      ? "hero-btn-secondary"
-                      : "hero-btn-primary"
+                      ? "hero-btn-secondary inline-flex items-center gap-2"
+                      : "hero-btn-primary inline-flex items-center gap-2"
                   }
                 >
                   {action.label}
+                  {action.variant === "primary" ? (
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" />
+                    </svg>
+                  )}
                 </Link>
               ))}
             </div>
