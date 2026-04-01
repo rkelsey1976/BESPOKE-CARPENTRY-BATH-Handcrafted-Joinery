@@ -8,8 +8,6 @@ export function NetlifyQuoteForm() {
       name="quote-request"
       method="POST"
       action="/thank-you"
-      data-netlify="true"
-      data-netlify-honeypot="company"
       onSubmit={() => trackEvent("quote_form_submit", { source: "contact_page" })}
       className="max-w-xl space-y-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
     >
