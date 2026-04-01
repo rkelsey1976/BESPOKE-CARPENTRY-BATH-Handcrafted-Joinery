@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { BeforeAfterSlider } from "@/components/before-after-slider";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
@@ -72,35 +73,14 @@ export default async function PortfolioCaseStudyPage({ params }: PortfolioCaseSt
         <h2 className="text-2xl font-bold text-stone-900">Before and After</h2>
         <div className="mt-5 space-y-6">
           {project.beforeAfter.map((pair) => (
-            <article key={pair.title} className="rounded-xl bg-white p-4 ring-1 ring-stone-200">
-              <h3 className="text-lg font-semibold text-stone-900">{pair.title}</h3>
-              <div className="mt-4 grid gap-4 md:grid-cols-2">
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#A95345]">
-                    Before
-                  </p>
-                  <Image
-                    src={pair.beforeImage}
-                    alt={pair.beforeAlt}
-                    width={1200}
-                    height={800}
-                    className="h-64 w-full rounded-lg object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#A95345]">
-                    After
-                  </p>
-                  <Image
-                    src={pair.afterImage}
-                    alt={pair.afterAlt}
-                    width={1200}
-                    height={800}
-                    className="h-64 w-full rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-            </article>
+            <BeforeAfterSlider
+              key={pair.title}
+              title={pair.title}
+              beforeImage={pair.beforeImage}
+              afterImage={pair.afterImage}
+              beforeAlt={pair.beforeAlt}
+              afterAlt={pair.afterAlt}
+            />
           ))}
         </div>
       </section>
