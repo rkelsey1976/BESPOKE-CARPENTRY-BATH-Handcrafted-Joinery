@@ -1,10 +1,28 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
+import { StructuredData } from "@/components/structured-data";
 import { projectCaseStudies } from "@/lib/projects";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Carpentry Portfolio Bath",
+  description:
+    "View recent bespoke carpentry, joinery, and restoration case studies completed across Bath and nearby areas.",
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+  ];
+
   return (
     <section className="space-y-8">
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Portfolio"
         title="Recent carpentry projects"

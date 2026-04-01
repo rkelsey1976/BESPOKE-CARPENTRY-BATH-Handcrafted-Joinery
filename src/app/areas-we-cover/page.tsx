@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
 import { StructuredData } from "@/components/structured-data";
 import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -19,14 +20,17 @@ const areas = [
 ];
 
 export default function AreasWeCoverPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Areas We Cover", path: "/areas-we-cover" },
+  ];
+
   return (
     <section className="space-y-8">
       <StructuredData
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Areas We Cover", path: "/areas-we-cover" },
-        ])}
+        data={getBreadcrumbSchema(breadcrumbItems)}
       />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Local coverage"
         title="Areas We Cover"

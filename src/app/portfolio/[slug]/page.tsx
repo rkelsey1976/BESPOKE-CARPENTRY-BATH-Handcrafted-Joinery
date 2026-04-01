@@ -1,11 +1,34 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
+import { StructuredData } from "@/components/structured-data";
 import { getProjectBySlug, projectCaseStudies } from "@/lib/projects";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
 
 type PortfolioCaseStudyProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({ params }: PortfolioCaseStudyProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return buildMetadata({
+      title: "Project not found",
+      description: "The requested project case study could not be found.",
+      path: "/portfolio",
+    });
+  }
+
+  return buildMetadata({
+    title: `${project.title} Case Study`,
+    description: project.summary,
+    path: `/portfolio/${project.slug}`,
+  });
+}
 
 export default async function PortfolioCaseStudyPage({ params }: PortfolioCaseStudyProps) {
   const { slug } = await params;
@@ -15,8 +38,16 @@ export default async function PortfolioCaseStudyPage({ params }: PortfolioCaseSt
     notFound();
   }
 
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: project.title, path: `/portfolio/${project.slug}` },
+  ];
+
   return (
     <section className="space-y-8">
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Case study"
         title={`${project.title} - ${project.location}`}

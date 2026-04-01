@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
 import { StructuredData } from "@/components/structured-data";
 import { buildMetadata, getBreadcrumbSchema, getServiceSchema } from "@/lib/seo";
@@ -11,15 +12,18 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function SashWindowsPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Sash Windows", path: "/services/sash-windows" },
+  ];
+
   return (
     <section className="space-y-8">
       <StructuredData
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Services", path: "/services" },
-          { name: "Sash Windows", path: "/services/sash-windows" },
-        ])}
+        data={getBreadcrumbSchema(breadcrumbItems)}
       />
+      <Breadcrumbs items={breadcrumbItems} />
       <StructuredData
         data={getServiceSchema({
           serviceName: "Sash Window Services in Bath",

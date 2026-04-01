@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CallLink } from "@/components/call-link";
 import { NetlifyQuoteForm } from "@/components/netlify-quote-form";
 import { PageHero } from "@/components/page-hero";
-import { buildMetadata } from "@/lib/seo";
+import { StructuredData } from "@/components/structured-data";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact a Carpenter in Bath",
@@ -13,6 +15,10 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function ContactPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ];
   const googleReviewsUrl =
     process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL ??
     "https://www.google.com/maps/search/carpenter+Bath";
@@ -23,6 +29,8 @@ export default function ContactPage() {
 
   return (
     <section className="space-y-8">
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Contact us"
         title="Get a carpentry quote"

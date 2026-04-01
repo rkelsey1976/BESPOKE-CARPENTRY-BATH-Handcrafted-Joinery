@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AreaPageTemplate } from "@/components/area-page-template";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
 import { StructuredData } from "@/components/structured-data";
 import { buildMetadata, getBreadcrumbSchema, getFaqSchema, getServiceSchema } from "@/lib/seo";
@@ -35,15 +36,16 @@ const bradfordOnAvonFaqs = [
 ];
 
 export default function BradfordOnAvonAreaPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Areas We Cover", path: "/areas-we-cover" },
+    { name: "Bradford-on-Avon", path: "/areas-we-cover/bradford-on-avon" },
+  ];
+
   return (
     <section className="space-y-8">
-      <StructuredData
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Areas We Cover", path: "/areas-we-cover" },
-          { name: "Bradford-on-Avon", path: "/areas-we-cover/bradford-on-avon" },
-        ])}
-      />
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <StructuredData
         data={getServiceSchema({
           serviceName: "Bespoke Carpentry in Bradford-on-Avon",

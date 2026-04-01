@@ -1,10 +1,27 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CallLink } from "@/components/call-link";
 import { PageHero } from "@/components/page-hero";
+import { StructuredData } from "@/components/structured-data";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Thank You",
+  description: "Thanks for your quote request. We will review your details and get back to you shortly.",
+  path: "/thank-you",
+});
 
 export default function ThankYouPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Thank You", path: "/thank-you" },
+  ];
+
   return (
     <section className="space-y-8">
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Thank you"
         title="Your quote request has been received"

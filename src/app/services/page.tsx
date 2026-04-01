@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
 import { StructuredData } from "@/components/structured-data";
 import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -44,14 +45,17 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ];
+
   return (
     <section className="space-y-8">
       <StructuredData
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Services", path: "/services" },
-        ])}
+        data={getBreadcrumbSchema(breadcrumbItems)}
       />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Our services"
         title="Carpentry and joinery services in Bath"

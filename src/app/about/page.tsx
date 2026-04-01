@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageHero } from "@/components/page-hero";
-import { buildMetadata } from "@/lib/seo";
+import { StructuredData } from "@/components/structured-data";
+import { buildMetadata, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Family Run Carpenter and Joiner in Bath",
@@ -11,8 +13,15 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function AboutPage() {
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+  ];
+
   return (
     <section className="space-y-10">
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="About our company"
         title="Family run carpenter and joiner in Bath"

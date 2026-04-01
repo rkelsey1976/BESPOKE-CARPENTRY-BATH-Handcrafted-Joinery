@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BlogList } from "@/components/blog-list";
 import { PageHero } from "@/components/page-hero";
 import { StructuredData } from "@/components/structured-data";
@@ -14,15 +15,17 @@ export const metadata: Metadata = buildMetadata({
 
 export default function BlogIndexPage() {
   const posts = getAllBlogPosts();
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+  ];
 
   return (
     <section className="space-y-8">
       <StructuredData
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Blog", path: "/blog" },
-        ])}
+        data={getBreadcrumbSchema(breadcrumbItems)}
       />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         badge="Local advice"
         title="Bath carpentry and joinery blog"
